@@ -6,12 +6,12 @@ import MenuData from './DropdownNavbarData'
 const Navbar = styled.nav`
     width: 100%;
     height: 60px;
-    background-color: ${({isScroll})=>(isScroll? '#0b172A': null)};
+    background-color: ${({isScroll})=>(isScroll? '#0b172A': 'transparent')};
     display: flex;
     align-items: center;
     justify-content: space-between;
-    z-index:1;
-    position: ${({isScroll})=>(isScroll? 'sticky': null)};
+    z-index:20;
+    position: ${({isScroll})=>(isScroll? 'fixed': null)};
     top: 0;
 `
 const NavLogo = styled(Link)`
@@ -26,6 +26,7 @@ const NavLogo = styled(Link)`
     color: #BC4123;
     border: 2px solid #BC4123;
     font-weight: 600;
+    z-index:5;
 
 `
 const NavItems = styled.ul`
@@ -36,18 +37,21 @@ const NavItems = styled.ul`
     align-items: center;
     justify-content: space-evenly;
     margin-right: 8vw;
-    transition: all 0.3s ease;
+    z-index: 3;
+    transition: all 0.5s ease;
 
     @media screen and (max-width:960px){
         position: absolute;
         flex-direction: column;
         background-color: #0b172A;
-        top: 60px;
-        left: ${({open})=>(open?0:'-100%')};
+        top: ${({open})=>(open?0:'-1200px')};
+        left: 0;
         width: 100%;
         height: 80vh;
-        /* padding-bottom: 2rem; */
-        transition: all 0.3s ease;
+        z-index: 3;
+        padding-top: 3rem;
+        transition: all 0.5s ease;
+        
 
     }
 `
@@ -57,11 +61,13 @@ const NavItem = styled.li`
     display: flex;
     align-items: center;
 
-    &:hover{
+    /* &:hover{
         background-color: #463940;
         color: #BC4123;
+    } */
+    @media screen and (max-width:1095px){
+        margin-right: -10px;
     }
-
 
     
 `
@@ -78,6 +84,7 @@ const NavLink = styled(Link)`
     font-size: 1.5rem;
     padding: 0 1.2rem;
     color: #BC4123;
+    margin-left: 0.5rem;
 
 
     &:hover{
@@ -85,9 +92,16 @@ const NavLink = styled(Link)`
         color: #fff;
     }
 
-    @media secreen and (max-width:960px){
+    /* @media screen and (max-width:1095px){
+        font-size: 1.2rem;
+        padding: 1rem;
+    } */
+
+    @media screen and (max-width:960px){
         height: 80%;
     }
+
+   
 
 `
 const NavbarBtn = styled.button`
@@ -100,12 +114,17 @@ const NavbarBtn = styled.button`
     font-size: 1.3rem;
     transition: all 0.3s ease-in;
     border-radius: 5px;
+    z-index:1;
 
     &:hover{
         background-color: #BC4123;
         color: #ffffff;
         border: 2px solid #BC4123;
         transition: all 0.3s ease-out;
+    }
+
+    @media screen and (max-width:1095px){
+        margin-left: 1rem;
     }
 `
 
@@ -123,6 +142,7 @@ const MobileMenu = styled.div`
         margin-right: 8vw;
         color: #BC4123;
         font-size: 2rem;
+        z-index:5;
 
         
     }

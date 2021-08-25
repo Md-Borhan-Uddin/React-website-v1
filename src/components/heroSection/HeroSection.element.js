@@ -2,12 +2,16 @@ import styled from "styled-components";
 
 export const HeroSection = styled.section`
     
-    width: 100%;
+    /* width: 100%; */
     height: 90vh;
-    /* z-index:-1; */
-    /* top: 0; */
+    max-height: 1100px;
+    position:relative;
     overflow: hidden;
-    margin-top:-62px;
+    margin-top:-60px;
+
+    /* @media screen and (max-width:576px){
+        height: 70vh;
+    } */
 
 `
 export const HeroContainer = styled.div`
@@ -18,59 +22,95 @@ export const HeroContainer = styled.div`
     display: flex;
     align-items:center;
     justify-content: center;
+    position: relative;
+
+
 `
+export const HeroSlide = styled.div`
+    width:100%;
+    height: 100%;
+    z-index:1;
+
+`
+export const HeroSlider = styled.div`
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+
+    &::before{
+        content:"";
+        position: absolute;
+        top:0;
+        bottom: 0;
+        left:0;
+        width:100%;
+        z-index:1;
+        height: 100vh;
+        background: linear-gradient(to right, rgba(255,255,255,0.1), rgba(255,255,255,0.1));
+    }
+`
+
+
+export const Image = styled.img`
+    width: 100vw;
+    height:100vh;
+    position:absolute;
+    top:0;
+    left:0;
+    object-fit: cover;
+    object-position: center;
+    transition: all 0.3s ease-in;
+    margin-top: -67px;
+    /* z-index:-1; */
+`
+
 export const HeroContent = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top:0;
-    left:0;
-    z-index:-1;
+    /* height: 100%; */
+    width: calc(100% - 100px);
+    color: #000;
+    position: relative;
+    /* top:0;
+    left:0; */
+    z-index:10;
+    
 `
-export const Image = styled.img`
-    width: 100%;
-    height:100%;
-    position:absolute;
-    object-fit: cover;
-    object-position: center;
-    transition: all 0.3s ease-in;
-    margin-top: -67px;
-    max-height:596px;
-    /* z-index:-1; */
-`
+
+
 
 export const HeroHeading = styled.h1`
     /* margin-bottom: 1rem; */
-    font-size: 3.5rem;
-    color: #040e1d;
-    z-index:1;
+    font-size: clamp(3rem, 8vw, 4rem);
+    font-weight:400;
 
-    @media screen and (max-width:960px){
-        font-size: 2.5rem;
-    }
-    @media screen and (max-width:600px){
-        font-size: 2rem;
-    }
+    
 `
 export const HeroOverview = styled.p`
     text-align:center;
     width: 70%;
     font-size: 1.4rem;
     color: #040e1d;
-    letter-spacing: 3px;
-    margin:1.5rem;
+    margin-bottom:1.5rem;
+    /* letter-spacing: 3px;
     z-index:1;
-    font-weight: 600;
+    font-weight: 600; */
 
-    @media screen and (max-width:600px){
+    /* @media screen and (max-width:600px){
         font-size: 1.2rem;
         letter-spacing: 1px;
         margin-top: 1rem;
-    }
+    } */
+    // 
+    
+
 `
 export const HeroBtn = styled.button`
     background-color:#BC4123;
@@ -92,10 +132,7 @@ export const HeroBtn = styled.button`
     }
 
 `
-export const HeroSlider = styled.div`
-    width:100%;
-    height:100%;
-`
+
 const Icon = styled.span`
     position: absolute;
     width: 40px;
@@ -109,6 +146,7 @@ const Icon = styled.span`
     align-items: center;
     justify-content: center;
     color: #BC4123;
+    z-index:10;
 
     &:hover{
         opacity:0.7;

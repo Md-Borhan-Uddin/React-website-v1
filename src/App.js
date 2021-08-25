@@ -3,11 +3,10 @@ import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import DropdownNavbar from './components/dropdownnavbar/DropdownNavbar';
-import HeroArea from './components/heroSection/HeroSection';
+import Slider from './components/heroSection/Slider';
 import { SliderData } from './components/heroSection/SliderData';
 import InfoSection from './components/infoSection/InfoSection';
 import ScrollToTop from './components/ScrollToTop';
-// import Navbar from './components/Navbar';
 
 function App() {
   const [isScroll, setIsScroll] = useState(false)
@@ -25,7 +24,7 @@ function App() {
   return (
     <BrowserRouter>
        <DropdownNavbar isScroll={isScroll}/>
-       <HeroArea slider={SliderData}/>
+       <Slider slider={SliderData}/>
        <InfoSection />
 
        {isScroll && <ScrollToTop scrollHandle={scrollHandle} />}
