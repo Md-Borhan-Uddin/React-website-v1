@@ -3,8 +3,10 @@ import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
 import Carosuel from './components/carosuel/Carosuel';
+import { FormData } from './components/data/Form.Data';
 import DropdownNavbar from './components/dropdownnavbar/DropdownNavbar';
 import Footer from './components/footer/Footer';
+import Form from './components/form/Form';
 import Slider from './components/heroSection/Slider';
 import { SliderData } from './components/heroSection/SliderData';
 import InfoSection from './components/infoSection/InfoSection';
@@ -31,7 +33,9 @@ function App() {
 
        <Carosuel />
 
-       <Footer />
+       <Form />
+
+       {/* <Footer /> */}
 
        {isScroll && <ScrollToTop scrollHandle={scrollHandle} />}
        
