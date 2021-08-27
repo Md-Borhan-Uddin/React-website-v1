@@ -2,7 +2,9 @@
 import { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import './App.css';
+import Carosuel from './components/carosuel/Carosuel';
 import DropdownNavbar from './components/dropdownnavbar/DropdownNavbar';
+import Footer from './components/footer/Footer';
 import Slider from './components/heroSection/Slider';
 import { SliderData } from './components/heroSection/SliderData';
 import InfoSection from './components/infoSection/InfoSection';
@@ -26,6 +28,10 @@ function App() {
        <DropdownNavbar isScroll={isScroll}/>
        <Slider slider={SliderData}/>
        <InfoSection />
+
+       <Carosuel />
+
+       <Footer />
 
        {isScroll && <ScrollToTop scrollHandle={scrollHandle} />}
        

@@ -1,12 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {HeroSection, HeroContainer, HeroContent, HeroHeading, HeroOverview, HeroBtn, RightArrow, LeftArrow, Image, HeroSlider} from "./HeroSection.element"
 // import {SliderData as slider} from './SliderData'
 
 function HeroArea({slider}) {
     const [current, setCurrent] = useState(0)
     const length = slider.length
-    // setTimeout(()=>{
-    //     return setCurrent(current===(length-1) ? 0:current+1)}, 2000)
+
+    setTimeout(()=>{
+        return setCurrent(current===(length-1) ? 0 : current+1)
+    }, 1000)
+
+    // useEffect(()=>{
+    //     console.log(current);
+    //     setTimeout(()=>{
+            
+    //         return setCurrent(current===(length-1) ? 0:current+1)}, 
+            
+    //     2000)
+    // }, [current, length])
+    
     const nextSlide = ()=>{
         return setCurrent(current===(length-1) ? 0:current+1)
     }
